@@ -25,8 +25,3 @@ jobs:
           git add dist/
           git commit -m "(chore) updating dist" || echo "No changes to commit"
           git push origin HEAD:master
-      - name: Send message to Amazon Chime chat room
-        uses: aws-actions/amazon-chime-github-webhook@master
-        with:
-          webhook: ${{ secrets.webhook }}
-          message: "Whoohoo!"
