@@ -1,0 +1,60 @@
+{
+  "name": "aws-actions-amazon-chime-github-webhook",
+  "version": "1.0.0",
+  "description": "Programmatically send message to Amazon Chime chat rooms",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write **/*.ts",
+    "format-check": "prettier --check **/*.ts",
+    "lint": "eslint src/**/*.ts",
+    "pack": "ncc build",
+    "test": "DEBUG=jest eslint **/*.ts && jest --coverage --verbose",
+    "all": "npm run build && npm run format && npm run lint && npm run pack && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aws-actions/amazon-chime-github-webhook.git"
+  },
+  "keywords": [
+    "AWS",
+    "GitHub",
+    "Actions",
+    "JavaScript"
+  ],
+  "author": "AWS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aws-actions/amazon-chime-github-webhook/issues"
+  },
+  "homepage": "https://github.com/aws-actions/amazon-chime-github-webhook#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test && npm run format && npm run lint",
+      "pre-push": "npm test && npm run format && npm run lint"
+    }
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.3",
+    "chime": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.2",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "@zeit/ncc": "^0.21.1",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-github": "^3.4.1",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "jest-circus": "^25.1.0",
+    "js-yaml": "^3.13.1",
+    "prettier": "^1.19.1",
+    "ts-jest": "^25.2.1",
+    "typescript": "^3.6.4"
+  }
+}

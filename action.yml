@@ -1,0 +1,22 @@
+name: 'Amazon Chime "Chime Webhook" Action for GitHub Actions'
+description: "Send message to Amazon Chime chat rooms"
+branding:
+  icon: "cloud"
+  color: "orange"
+inputs:
+  webhook:
+    description: "The URL of the Amazon Chime Webhook"
+    required: true
+  message:
+    description: "The message that is send to the Amazon Chime chat room"
+    required: true
+  no-markdown:
+    description: "Do not send the message using markdown syntax"
+    required: false
+    default: "0"
+outputs:
+  message-id:
+    description: "Returns the id of the message in Amazon Chime"
+runs:
+  using: "node12"
+  main: "dist/index.js"

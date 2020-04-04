@@ -1,0 +1,32 @@
+on:
+  push:
+    branches:
+      - master
+
+name: Package
+
+jobs:
+  check:
+    name: Package distribution file
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: Package
+        run: |
+          npm ci
+          npm test
+          npm run all
+      - name: Commit
+        run: |
+          git config --global user.name "GitHub Actions"
+          git add dist/
+          git commit -m "(chore) updating dist" || echo "No changes to commit"
+          git push origin HEAD:master
+      - name: Send message to Amazon Chime chat room
+        uses: aws-actions/amazon-chime-github-webhook@master
+        with:
+          webhook: ${{ secrets.webhook }}
+          message: "Whoohoo!"
