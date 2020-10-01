@@ -35,7 +35,7 @@
     }
   },
   "dependencies": {
-    "@actions/core": "^1.2.3",
+    "@actions/core": "^1.2.6",
     "chime": "^1.0.1"
   },
   "devDependencies": {
